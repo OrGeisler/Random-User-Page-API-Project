@@ -1,0 +1,30 @@
+{
+  "name": "rupg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrGeisler/Random-User-Page-API-Project.git"
+  },
+  "author": "Or geisler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OrGeisler/Random-User-Page-API-Project/issues"
+  },
+  "homepage": "https://github.com/OrGeisler/Random-User-Page-API-Project#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4.7.7",
+    "jquery": "^3.6.1",
+    "urllib": "^3.1.2"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/jquery": "^3.5.14"
+  }
+}
