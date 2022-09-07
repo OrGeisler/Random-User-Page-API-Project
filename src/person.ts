@@ -17,9 +17,9 @@ class Person{
         picture:string
         city:string
         state:string
-        friends:string[]
+        friends:object
 
-        constructor(firstName:string,lastName:string,picture:string,city:string,state:string,friends:string[]){
+        constructor(firstName:string,lastName:string,picture:string,city:string,state:string,friends:object){
             this.firstName = firstName
             this.lastName = lastName
             this.picture = picture

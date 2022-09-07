@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>API Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script>var exports = {};</script> -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" >
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./node_modules/handlebars/dist/handlebars.js"></script>
-    <script src="./node_modules/axios/dist/axios.js"></script>
 </head>
 
 <body>
@@ -27,6 +25,11 @@
             <h4>Friends</h4>	
             <div class="friends-container">	
             </div>	
+        </div>
+        <div id = "footbar">
+            <button class="gen-butm">Generate User</button>
+            <button class="save-butm">Save User</button>
+            <button class="load-butm">Load User</button>
         </div>	
     </div>
     <script src="./js/person.js"></script>
@@ -38,3 +41,38 @@
 </body>
 
 </html>
+
+
+<!-- Handlebars -->
+
+<script id="user-template" type="text/x-handlebars-template">
+    <img id="profile-pic" src= {{image}}>
+    <div class="user-info">
+        <div>{{firstName}} {{lastName}}</div>
+        <div>{{city}}, {{state}}</div>
+    </div>
+</script>
+
+<script id="quote-template" type="text/x-handlebars-template">
+        <p>Favorite quote</p>
+        <span>"{{quote}}."</span>
+        <div>-Kanye West</div>
+</script>
+
+<script id="pokemon-template" type="text/x-handlebars-template">
+    <img id="pokemon-image" src= {{image}}>
+    <span id="pokemon-text">Favorite Pokemon: {{pokemon}}.</span>
+</script>
+
+<script id="meat-template" type="text/x-handlebars-template">
+    <div>About me</div>
+    <div class="meat-text">{{text}}</div>
+</script>
+
+<script id="friends-template" type="text/x-handlebars-template">
+    <ul>
+        {{#each friendsList}}
+          <li class="friends">{{name}}</li>
+        {{/each}}
+      </ul>
+</script>

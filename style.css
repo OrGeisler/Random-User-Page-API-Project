@@ -80,17 +80,43 @@ ul {
     list-style-type: none;
 }
 
-.buttons {
+li {
+    margin: 10px;
+    margin-left: 0;
+}
+
+#footbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.gen-butm {
     position: fixed;
     bottom: 1vw;
     left: 1vw;
 }
 
+.load-butm {
+    position: fixed;
+    bottom: 1vw;
+    left: 25vw;
+    /* margin: 10px; */
+
+}
+
+.save-butm {
+    position: fixed;
+    bottom: 1vw;
+    left: 49vw;
+}
+
 button {
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 30px;
     border-radius: 6px;
-    background-color: #27ae60;
+    background-color: #2980b9;
     color: #ecf0f1;
     font-size: 1vmax;
     cursor: pointer;
@@ -125,4 +151,5 @@ button {
 .meat-text {
     padding: 1vw;
     font-size: 1vmax;
+    margin-bottom: 100px;
 }

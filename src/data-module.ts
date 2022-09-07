@@ -15,16 +15,26 @@ class DataModule {
     async  personGenerator() {
         const response = await $.get('https://randomuser.me/api/?results=7')
         const usersList:PersonInterface[] = response.results
+        const friendsList : string[] = usersList.map(value =>{
+            return `${value.name.first} ${value.name.last}`
+        })
+        const friendObject :object={
+            friendsList: friendsList.map(value =>{
+                return {name:value}
+            })
+
+        }
         let person :Person = new Person(
                         usersList[0].name.first,
                         usersList[0].name.last,
                         usersList[0].picture.thumbnail,
                         usersList[0].location.city,
                         usersList[0].location.state,
-                        usersList.map(value =>{
-                        return `${value.name.first} ${value.name.last}`
-                        }
-            ))
+                        friendObject
+                        // usersList.map(value =>{
+                        // return `${value.name.first} ${value.name.last}`
+                        // }
+            )
         return person
     }
 
@@ -40,12 +50,14 @@ class DataModule {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min);
     }
-
+    properCase(text:string){
+        return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+    }
     async  pokemonGenerator() {
-        const num = this.getRandomInt(0,949)
+        const num = this.getRandomInt(0,905)
         const response = await $.get(`https://pokeapi.co/api/v2/pokemon/${num}/`)
         const pokemon : Pokemon = new Pokemon(
-            response.forms[0].name,
+            this.properCase(response.forms[0].name),
             response.sprites.front_default
             )
         return pokemon
@@ -59,31 +71,20 @@ class DataModule {
 
     async generatAll(){
         await this.personGenerator().then(value =>{
-            this.person = value
-        }) 
+        this.person = value
+        })
+        
+        await this.pokemonGenerator().then(value =>{
+            this.pokemon = value
+        })
+
+        await this.quoteGenerator().then(value =>{
+            this.quote = value
+        })
+
+        await this.randomMeatText().then(value => {
+            this.meatText = value
+        })
     }
 
 }
-
-
-
-dataModule.personGenerator().then(value => {
-    dataModule.person = value
-    renderer.userRender(dataModule.person)
-    console.log(dataModule.person)
-});
-
-dataModule.pokemonGenerator().then(value => {
-  dataModule.pokemon = value
-  console.log(dataModule.pokemon)
-})
-
-dataModule.quoteGenerator().then(value => {
-  dataModule.quote = value
-  console.log(dataModule.quote)
-})
-
-dataModule.randomMeatText().then(value => {
-  dataModule.meatText = value
-  console.log(dataModule.meatText)
-})
