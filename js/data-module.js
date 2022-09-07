@@ -27,11 +27,7 @@ class DataModule {
                     return { name: value };
                 })
             };
-            let person = new Person(usersList[0].name.first, usersList[0].name.last, usersList[0].picture.thumbnail, usersList[0].location.city, usersList[0].location.state, friendObject
-            // usersList.map(value =>{
-            // return `${value.name.first} ${value.name.last}`
-            // }
-            );
+            let person = new Person(usersList[0].name.first, usersList[0].name.last, usersList[0].picture.thumbnail, usersList[0].location.city, usersList[0].location.state, friendObject);
             return person;
         });
     }

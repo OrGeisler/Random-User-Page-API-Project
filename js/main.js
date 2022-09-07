@@ -10,15 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let dataModule = new DataModule();
 let renderer = new Renderer();
-// באיבנט ליסינר לשים את הפונקציה אסינכרונית
 $(".gen-butm").on('click', function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield dataModule.generatAll();
-        renderer.userRender(dataModule.person);
-        renderer.quoteRender(dataModule.quote);
-        renderer.pokemonRender(dataModule.pokemon);
-        renderer.meatTextRender(dataModule.meatText);
-        renderer.friendsRender(dataModule.person);
+        renderer.RenderAll(dataModule);
     });
+});
+$(".save-butm").on('click', function () {
+    localStorage.setItem(`${dataModule.person.firstName}`, JSON.stringify(dataModule));
+    console.log(localStorage);
 });
 //# sourceMappingURL=main.js.map

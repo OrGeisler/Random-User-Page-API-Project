@@ -101,15 +101,14 @@ li {
 .load-butm {
     position: fixed;
     bottom: 1vw;
-    left: 25vw;
-    /* margin: 10px; */
-
+    left: 49vw;
 }
 
 .save-butm {
     position: fixed;
     bottom: 1vw;
-    left: 49vw;
+    left: 25vw;
+
 }
 
 button {

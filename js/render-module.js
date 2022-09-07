@@ -36,5 +36,12 @@ class Renderer {
         var newHTML = template(person.friends);
         friendsEle.empty().append(newHTML);
     }
+    RenderAll(user) {
+        this.userRender(user.person);
+        this.friendsRender(user.person);
+        this.meatTextRender(user.meatText);
+        this.pokemonRender(user.pokemon);
+        this.quoteRender(user.quote);
+    }
 }
 //# sourceMappingURL=render-module.js.map

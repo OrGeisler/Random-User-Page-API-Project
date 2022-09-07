@@ -41,4 +41,12 @@ class Renderer{
         friendsEle.empty().append(newHTML)
     }
 
+    RenderAll(user:DataModule){
+        this.userRender(user.person)
+        this.friendsRender(user.person)
+        this.meatTextRender(user.meatText)
+        this.pokemonRender(user.pokemon)
+        this.quoteRender(user.quote)
+    }
+
 }

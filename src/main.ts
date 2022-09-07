@@ -1,13 +1,12 @@
 let dataModule = new DataModule()
 let renderer: Renderer = new Renderer()
 
-// באיבנט ליסינר לשים את הפונקציה אסינכרונית
-
 $(".gen-butm").on('click', async function () {
     await dataModule.generatAll()
-    renderer.userRender(dataModule.person)
-    renderer.quoteRender(dataModule.quote)
-    renderer.pokemonRender(dataModule.pokemon)
-    renderer.meatTextRender(dataModule.meatText)
-    renderer.friendsRender(dataModule.person)
+    renderer.RenderAll(dataModule)
+})
+
+$(".save-butm").on('click',function () {
+    localStorage.setItem(`${dataModule.person.firstName}`, JSON.stringify(dataModule))
+    console.log(localStorage)
 })

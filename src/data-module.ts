@@ -31,13 +31,9 @@ class DataModule {
                         usersList[0].location.city,
                         usersList[0].location.state,
                         friendObject
-                        // usersList.map(value =>{
-                        // return `${value.name.first} ${value.name.last}`
-                        // }
             )
         return person
     }
-
   
     async quoteGenerator() {
         const response = await $.get('https://api.kanye.rest')
