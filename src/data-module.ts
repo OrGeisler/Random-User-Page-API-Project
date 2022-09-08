@@ -3,12 +3,14 @@ class DataModule {
   pokemon: Pokemon;
   quote: Quote;
   meatText: MeatText;
+  loadedUser: DataModule
 
   constructor() {
     this.person = {} as Person;
     this.pokemon = {} as Pokemon;
     this.quote = {} as Quote;
     this.meatText = {} as MeatText;
+    this.loadedUser = {} as DataModule
   }
 
   async personGenerator() {
@@ -79,5 +81,27 @@ class DataModule {
     await this.randomMeatText().then((value) => {
       this.meatText = value;
     });
+  }
+
+  saveToLocalStorage(dataModule: DataModule) {
+    if (localStorage.length === 0) {
+      localStorage.setItem("userArry", JSON.stringify([dataModule]));
+    } else {
+      const userArry = JSON.parse(localStorage.userArry);
+      userArry.push(dataModule);
+      localStorage.clear();
+      localStorage.setItem("userArry", JSON.stringify(userArry));
+    }
+  }
+  loadFromLocalStorage() {
+    if (localStorage.length > 0) {
+      const localStorageObject = JSON.parse(localStorage.userArry);
+      const userLoaded = new DataModule();
+      userLoaded.person = localStorageObject[0].person;
+      userLoaded.pokemon = localStorageObject[0].pokemon;
+      userLoaded.quote = localStorageObject[0].quote;
+      userLoaded.meatText = localStorageObject[0].meatText;
+      this.loadedUser=userLoaded
+    } 
   }
 }

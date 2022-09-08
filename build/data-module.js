@@ -14,6 +14,7 @@ class DataModule {
         this.pokemon = {};
         this.quote = {};
         this.meatText = {};
+        this.loadedUser = {};
     }
     personGenerator() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -76,6 +77,28 @@ class DataModule {
                 this.meatText = value;
             });
         });
+    }
+    saveToLocalStorage(dataModule) {
+        if (localStorage.length === 0) {
+            localStorage.setItem("userArry", JSON.stringify([dataModule]));
+        }
+        else {
+            const userArry = JSON.parse(localStorage.userArry);
+            userArry.push(dataModule);
+            localStorage.clear();
+            localStorage.setItem("userArry", JSON.stringify(userArry));
+        }
+    }
+    loadFromLocalStorage() {
+        if (localStorage.length > 0) {
+            const localStorageObject = JSON.parse(localStorage.userArry);
+            const userLoaded = new DataModule();
+            userLoaded.person = localStorageObject[0].person;
+            userLoaded.pokemon = localStorageObject[0].pokemon;
+            userLoaded.quote = localStorageObject[0].quote;
+            userLoaded.meatText = localStorageObject[0].meatText;
+            this.loadedUser = userLoaded;
+        }
     }
 }
 //# sourceMappingURL=data-module.js.map
