@@ -17,15 +17,15 @@ class DataModule {
     }
     personGenerator() {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield $.get('https://randomuser.me/api/?results=7');
+            const response = yield $.get("https://randomuser.me/api/?results=7");
             const usersList = response.results;
-            const friendsList = usersList.map(value => {
+            const friendsList = usersList.map((value) => {
                 return `${value.name.first} ${value.name.last}`;
             });
             const friendObject = {
-                friendsList: friendsList.map(value => {
+                friendsList: friendsList.map((value) => {
                     return { name: value };
-                })
+                }),
             };
             let person = new Person(usersList[0].name.first, usersList[0].name.last, usersList[0].picture.thumbnail, usersList[0].location.city, usersList[0].location.state, friendObject);
             return person;
@@ -33,7 +33,7 @@ class DataModule {
     }
     quoteGenerator() {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield $.get('https://api.kanye.rest');
+            const response = yield $.get("https://api.kanye.rest");
             let quote = new Quote(response.quote);
             return quote;
         });
@@ -56,23 +56,23 @@ class DataModule {
     }
     randomMeatText() {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield $.get('https://baconipsum.com/api/?type=all-meat');
+            const response = yield $.get("https://baconipsum.com/api/?type=all-meat");
             let text = new MeatText(response[0]);
             return text;
         });
     }
     generatAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.personGenerator().then(value => {
+            yield this.personGenerator().then((value) => {
                 this.person = value;
             });
-            yield this.pokemonGenerator().then(value => {
+            yield this.pokemonGenerator().then((value) => {
                 this.pokemon = value;
             });
-            yield this.quoteGenerator().then(value => {
+            yield this.quoteGenerator().then((value) => {
                 this.quote = value;
             });
-            yield this.randomMeatText().then(value => {
+            yield this.randomMeatText().then((value) => {
                 this.meatText = value;
             });
         });

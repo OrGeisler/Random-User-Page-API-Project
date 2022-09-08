@@ -1,15 +1,15 @@
-class Quote{
-    quote:string
+class Quote {
+  quote: string;
 
-    constructor(quote :string){
-        this.quote = quote
-    }
+  constructor(quote: string) {
+    this.quote = quote;
+  }
 }
 
 class MeatText {
-    text:string
+  text: string;
 
-    constructor(text:string){
-        this.text = text
-    }
+  constructor(text: string) {
+    this.text = text;
+  }
 }

@@ -33,5 +33,4 @@ $('.load-butm').on('click',function() {
         console.log(userLoaded)
         renderer.RenderAll(userLoaded)
             }
-
     })
