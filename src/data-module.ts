@@ -3,14 +3,14 @@ class DataModule {
   pokemon: Pokemon;
   quote: Quote;
   meatText: MeatText;
-  loadedUser: DataModule
+  loadedUser: DataModule;
 
   constructor() {
     this.person = {} as Person;
     this.pokemon = {} as Pokemon;
     this.quote = {} as Quote;
     this.meatText = {} as MeatText;
-    this.loadedUser = {} as DataModule
+    this.loadedUser = {} as DataModule;
   }
 
   async personGenerator() {
@@ -101,7 +101,7 @@ class DataModule {
       userLoaded.pokemon = localStorageObject[0].pokemon;
       userLoaded.quote = localStorageObject[0].quote;
       userLoaded.meatText = localStorageObject[0].meatText;
-      this.loadedUser=userLoaded
-    } 
+      this.loadedUser = userLoaded;
+    }
   }
 }
